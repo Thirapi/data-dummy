@@ -15,5 +15,6 @@
     "@mui/material": "^5.16.7",
     "axios": "^1.7.4",
     "express": "^4.19.2"
-  }
+  },
+  "devDependencies": {}
 }
