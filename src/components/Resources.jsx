@@ -3,16 +3,8 @@ import React from 'react';
 import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
 
 const resources = [
-  {
-    path: '/users',
-    url: 'https://data-dummy.vercel.app/users',
-    description: '30 users',
-  },
-  {
-    path: '/posts',
-    url: 'https://data-dummy.vercel.app/posts',
-    description: '30 posts',
-  },
+  { path: '/users', url: 'https://data-dummy.vercel.app/users', description: 'List of users' },
+  { path: '/posts', url: 'https://data-dummy.vercel.app/posts', description: 'List of posts' },
 ];
 
 const Resources = () => {

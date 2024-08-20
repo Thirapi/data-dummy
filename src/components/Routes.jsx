@@ -6,7 +6,7 @@ const routes = [
   { path: '/users', url: 'https://data-dummy.vercel.app/users/1', description: 'Get all users' },
   { path: '/users/:id', url: 'https://data-dummy.vercel.app/users/1', description: 'Get a specific user by ID' },
   { path: '/posts', url: 'https://data-dummy.vercel.app/posts/1', description: 'Get all posts' },
-  { path: '/posts/:id', url: 'https://data-dummy.vercel.app/posts/1', description: 'Get a specific post by ID' },
+  { path: '/users/:id', url: 'https://data-dummy.vercel.app/users/1', description: 'Get a specific user by ID' },
 ];
 
 const Routes = () => {

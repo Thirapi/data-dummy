@@ -1,26 +1,35 @@
-// src/App.jsx
-import React from 'react';
-import { Box } from '@mui/material';
-import Hero from './components/Hero';
-import Resources from './components/Resources';
-import Routes from './components/Routes';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-const App = () => {
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gridTemplateRows: 'auto 1fr', height: '100vh', overflow: 'hidden' }}>
-      {/* Kolom kiri untuk Resources dan Routes */}
-      <Box sx={{ gridColumn: '1', gridRow: '1 / span 2', display: 'flex', flexDirection: 'column', padding: 2 }}>
-      <Hero />
-      </Box>
-      {/* Kolom kanan untuk Hero */}
-      <Box sx={{ gridColumn: '2', gridRow: '1 / span 2', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
-        <Box sx={{ flexGrow: 1 }}>
-          <Resources />
-        </Box>
-        <Routes />
-      </Box>
-    </Box>
-  );
-};
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
+}
 
-export default App;
+export default App
