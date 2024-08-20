@@ -36,7 +36,6 @@ const users = [
   { id: 30, name: 'Derek' }
 ];
 
-// Data Dummy untuk Posts (30 data)
 const posts = [
   { id: 1, title: 'Hello World', content: 'This is the first post.' },
   { id: 2, title: 'Another Post', content: 'Here is some more content.' },
