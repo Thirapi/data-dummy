@@ -12,11 +12,7 @@
   ],
   "routes": [
     {
-      "src": "/users/(.*)",
-      "dest": "/index.js"
-    },
-    {
-      "src": "/posts/(.*)",
+      "src": "/api/(.*)",
       "dest": "/index.js"
     },
     {
