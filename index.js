@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 3000;
 
@@ -89,6 +90,10 @@ app.get('/posts', (req, res) => {
 app.get('/posts/:id', (req, res) => {
   const post = posts.find(p => p.id === parseInt(req.params.id));
   res.json(post || {});
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(port, () => {

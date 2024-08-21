@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Dummy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .users, .posts {
+      width: 45%;
+    }
+    .item {
+      background-color: #f4f4f4;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Data Dummy</h1>
+  
+  <div class="container">
+    <div class="users">
+      <h2>Users</h2>
+      <div id="users-list"></div>
+    </div>
+    <div class="posts">
+      <h2>Posts</h2>
+      <div id="posts-list"></div>
+    </div>
+  </div>
+
+  <script>
+    // Mengambil dan menampilkan data pengguna
+    fetch('/users')
+      .then(response => response.json())
+      .then(users => {
+        const usersList = document.getElementById('users-list');
+        users.forEach(user => {
+          const userDiv = document.createElement('div');
+          userDiv.className = 'item';
+          userDiv.innerHTML = `<strong>ID:</strong> ${user.id} <br> <strong>Name:</strong> ${user.name}`;
+          usersList.appendChild(userDiv);
+        });
+      });
+
+    // Mengambil dan menampilkan data postingan
+    fetch('/posts')
+      .then(response => response.json())
+      .then(posts => {
+        const postsList = document.getElementById('posts-list');
+        posts.forEach(post => {
+          const postDiv = document.createElement('div');
+          postDiv.className = 'item';
+          postDiv.innerHTML = `<strong>ID:</strong> ${post.id} <br> <strong>Title:</strong> ${post.title} <br> <strong>Content:</strong> ${post.content}`;
+          postsList.appendChild(postDiv);
+        });
+      });
+  </script>
+
+</body>
+</html>
