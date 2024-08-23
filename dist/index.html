@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
+  <title>api-dummy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    code {
+      background-color: #2e2e2e;
+      color: #DADADA;
+      padding: 4px 4px;
+      border-radius: 3px;
+    }
+    .example {
+      background-color: #0D0D0D;
+      border-left: 4px solid #2F2F2F;
+      padding: 10px;
+      margin-top: 10px;
+      color: #DADADA;
+    }
+    li {
+      padding-bottom: 24px;
+    }
+    footer {
+      color: #0D0D0D;
+      padding-top: 10px;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>api-dummy</h1>
+  <p>Ini adalah dokumentasi untuk API Dummy yang menyediakan data user dan post. Untuk sementara hanya mendukung metode <code>GET</code> dan belum mendukung metode lain seperti <code>POST</code>, <code>PUT</code>, atau <code>DELETE</code></p>
+  <p>Berikut adalah informasi tentang resource dan rute yang tersedia.</p>
+
+  <div class="section">
+    <h2>Resource</h2>
+    <p>API ini menyediakan resource berikut.</p>
+    <p>URL base untuk API ini adalah <code>https://data-dummy.vercel.app/</code>:</p>
+    <ul>
+      <li><code>/users</code> - memiliki 30 data users</li>
+      <li><code>/posts</code> - memiliki 30 data posts</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Rute</h2>
+    <p>Gunakan rute berikut untuk berinteraksi dengan API:</p>
+    <ul>
+      <li><code>/users</code> - Mengambil semua pengguna</li>
+      <li><code>/users/:id</code> - Mengambil pengguna berdasarkan ID (misalnya, <code>/users/1</code>)</li>
+      <li><code>/posts</code> - Mengambil semua postingan</li>
+      <li><code>/posts/:id</code> - Mengambil postingan berdasarkan ID (misalnya, <code>/posts/1</code>)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Cara Menggunakan API</h2>
+    <p>Untuk menggunakan API, kirimkan permintaan GET ke endpoint yang diinginkan. Berikut adalah beberapa contoh:</p>
+    
+    <div class="example">
+      <p><strong>Contoh 1:</strong> Mengambil semua pengguna</p>
+      <code>GET /users</code>
+      <p><strong>URL:</strong> <code>https://data-dummy.vercel.app/users</code></p>
+    </div>
+    
+    <div class="example">
+      <p><strong>Contoh 2:</strong> Mengambil pengguna berdasarkan ID</p>
+      <code>GET /users/1</code>
+      <p><strong>URL:</strong> <code>https://data-dummy.vercel.app/users/1</code></p>
+    </div>
+    
+    <div class="example">
+      <p><strong>Contoh 3:</strong> Mengambil semua postingan</p>
+      <code>GET /posts</code>
+      <p><strong>URL:</strong> <code>https://data-dummy.vercel.app/posts</code></p>
+    </div>
+    
+    <div class="example">
+      <p><strong>Contoh 4:</strong> Mengambil postingan berdasarkan ID</p>
+      <code>GET /posts/1</code>
+      <p><strong>URL:</strong> <code>https://data-dummy.vercel.app/posts/1</code></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>thirapi.github.io</p>
+  </footer>
+
+</body>
+</html>

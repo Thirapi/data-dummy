@@ -96,6 +96,49 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Endpoint untuk menambahkan pengguna baru (POST)
+app.post('/users', (req, res) => {
+  const newUser = { id: users.length + 1, name: req.body.name };
+  // Simulasi penambahan pengguna baru tanpa menyimpan data asli
+  res.json({ message: 'Pengguna berhasil ditambahkan (simulasi)', user: newUser });
+});
+
+// Endpoint untuk memperbarui data pengguna berdasarkan ID (PUT)
+app.put('/users/:id', (req, res) => {
+  const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
+  if (userIndex !== -1) {
+    const updatedUser = { ...users[userIndex], name: req.body.name };
+    // Simulasi pembaruan pengguna tanpa menyimpan data asli
+    res.json({ message: 'Pengguna berhasil diperbarui (simulasi)', user: updatedUser });
+  } else {
+    res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+  }
+});
+
+// Endpoint untuk memperbarui sebagian data pengguna (PATCH)
+app.patch('/users/:id', (req, res) => {
+  const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
+  if (userIndex !== -1) {
+    const updatedUser = { ...users[userIndex], ...req.body };
+    // Simulasi pembaruan sebagian pengguna tanpa menyimpan data asli
+    res.json({ message: 'Pengguna berhasil diperbarui (simulasi)', user: updatedUser });
+  } else {
+    res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+  }
+});
+
+// Endpoint untuk menghapus pengguna berdasarkan ID (DELETE)
+app.delete('/users/:id', (req, res) => {
+  const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
+  if (userIndex !== -1) {
+    const deletedUser = users[userIndex];
+    // Simulasi penghapusan pengguna tanpa menyimpan data asli
+    res.json({ message: 'Pengguna berhasil dihapus (simulasi)', user: deletedUser });
+  } else {
+    res.status(404).json({ message: 'Pengguna tidak ditemukan' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`API server berjalan`);
 });
