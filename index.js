@@ -118,7 +118,7 @@ app.put('/users/:id', (req, res) => {
   if (userIndex !== -1) {
     const updatedUser = { ...users[userIndex], name: req.body.name };
     // Simulasi pembaruan pengguna tanpa menyimpan data asli
-    res.json({ message: 'Pengguna berhasil diperbarui (simulasi)', user: updatedUser });
+    res.json({ message: 'Pengguna berhasil diperbarui', user: updatedUser });
   } else {
     res.status(404).json({ message: 'Pengguna tidak ditemukan' });
   }
@@ -130,7 +130,7 @@ app.patch('/users/:id', (req, res) => {
   if (userIndex !== -1) {
     const updatedUser = { ...users[userIndex], ...req.body };
     // Simulasi pembaruan sebagian pengguna tanpa menyimpan data asli
-    res.json({ message: 'Pengguna berhasil diperbarui (simulasi)', user: updatedUser });
+    res.json({ message: 'Pengguna berhasil diperbarui', user: updatedUser });
   } else {
     res.status(404).json({ message: 'Pengguna tidak ditemukan' });
   }
@@ -142,11 +142,82 @@ app.delete('/users/:id', (req, res) => {
   if (userIndex !== -1) {
     const deletedUser = users[userIndex];
     // Simulasi penghapusan pengguna tanpa menyimpan data asli
-    res.json({ message: 'Pengguna berhasil dihapus (simulasi)', user: deletedUser });
+    res.json({ message: 'Pengguna berhasil dihapus', user: deletedUser });
   } else {
     res.status(404).json({ message: 'Pengguna tidak ditemukan' });
   }
 });
+
+// Endpoint untuk menambahkan postingan baru (POST)
+app.post('/posts', (req, res) => {
+  const newPost = {
+    id: posts.length + 1,
+    title: req.body.title,
+    content: req.body.content
+  };
+  // Simulasi penambahan postingan baru tanpa menyimpan data asli
+  posts.push(newPost);
+  res.status(201).json({
+    message: 'Postingan berhasil ditambahkan',
+    post: newPost
+  });
+});
+
+// Endpoint untuk memperbarui data postingan berdasarkan ID (PUT)
+app.put('/posts/:id', (req, res) => {
+  const postIndex = posts.findIndex(p => p.id === parseInt(req.params.id));
+  if (postIndex !== -1) {
+    const updatedPost = {
+      ...posts[postIndex],
+      title: req.body.title,
+      content: req.body.content
+    };
+    // Simulasi pembaruan postingan tanpa menyimpan data asli
+    posts[postIndex] = updatedPost;
+    res.json({
+      message: 'Postingan berhasil diperbarui',
+      post: updatedPost
+    });
+  } else {
+    res.status(404).json({ message: 'Postingan tidak ditemukan' });
+  }
+});
+
+// Endpoint untuk memperbarui sebagian data postingan (PATCH)
+app.patch('/posts/:id', (req, res) => {
+  const postIndex = posts.findIndex(p => p.id === parseInt(req.params.id));
+  if (postIndex !== -1) {
+    const updatedPost = {
+      ...posts[postIndex],
+      ...req.body
+    };
+    // Simulasi pembaruan sebagian postingan tanpa menyimpan data asli
+    posts[postIndex] = updatedPost;
+    res.json({
+      message: 'Postingan berhasil diperbarui',
+      post: updatedPost
+    });
+  } else {
+    res.status(404).json({ message: 'Postingan tidak ditemukan' });
+  }
+});
+
+// Endpoint untuk menghapus postingan berdasarkan ID (DELETE)
+app.delete('/posts/:id', (req, res) => {
+  const postIndex = posts.findIndex(p => p.id === parseInt(req.params.id));
+  if (postIndex !== -1) {
+    const deletedPost = posts[postIndex];
+    // Simulasi penghapusan postingan tanpa menyimpan data asli
+    posts.splice(postIndex, 1);
+    res.json({
+      message: 'Postingan berhasil dihapus',
+      post: deletedPost
+    });
+  } else {
+    res.status(404).json({ message: 'Postingan tidak ditemukan' });
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`API server berjalan`);
