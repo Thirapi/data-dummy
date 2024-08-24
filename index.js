@@ -3,6 +3,9 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+// Middleware untuk parsing JSON
+app.use(express.json());
+
 // Contoh data dummy
 const users = [
   { id: 1, name: 'Alice' },
