@@ -107,7 +107,7 @@ app.post('/users', (req, res) => {
   };
   users.push(newUser);  // Simpan data baru (simulasi)
   res.status(201).json({
-    message: 'Pengguna berhasil ditambahkan (simulasi)',
+    message: 'Pengguna berhasil ditambahkan',
     user: newUser
   });
 });
