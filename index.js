@@ -98,9 +98,15 @@ app.get('/', (req, res) => {
 
 // Endpoint untuk menambahkan pengguna baru (POST)
 app.post('/users', (req, res) => {
-  const newUser = { id: users.length + 1, name: req.body.name };
-  // Simulasi penambahan pengguna baru tanpa menyimpan data asli
-  res.json({ message: 'Pengguna berhasil ditambahkan (simulasi)', user: newUser });
+  const newUser = {
+    id: users.length + 1,  // Tambahkan ID baru secara otomatis
+    name: req.body.name    // Ambil nama dari body request
+  };
+  users.push(newUser);  // Simpan data baru (simulasi)
+  res.status(201).json({
+    message: 'Pengguna berhasil ditambahkan (simulasi)',
+    user: newUser
+  });
 });
 
 // Endpoint untuk memperbarui data pengguna berdasarkan ID (PUT)
